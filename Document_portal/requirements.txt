@@ -3,3 +3,4 @@ langgraph
 langchain-community
 langchain-groq 
 langchain-google-genai 
+structlog
