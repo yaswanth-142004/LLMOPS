@@ -1,4 +1,4 @@
-from pydantic import BaseModel,RootModel 
+from pydantic import BaseModel,RootModel ,Field
 from typing import List,Union 
 from enum import Enum 
 
@@ -12,7 +12,7 @@ class Metadata(BaseModel):
     Publisher:str
     Language:str 
     PageCount:Union[int,str]
-    SentimentTone:Str 
+    SentimentTone:str 
     
 class ChangeFormat(BaseModel):
     Page: str 
