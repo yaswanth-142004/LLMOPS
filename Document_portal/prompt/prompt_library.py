@@ -5,7 +5,7 @@ prompt = ChatPromptTemplate.from_template("""
         
         {format_instructions}
         
-        Analyze this document : 
+        Analyze this document  : 
         
         {document_text}
         
