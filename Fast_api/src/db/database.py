@@ -6,7 +6,8 @@ from sqlalchemy.orm import DeclarativeBase, relationship, mapped_column, Mapped
 from sqlalchemy import Column, Integer, String, ForeignKey, Table, DateTime, Date, Text, Boolean, select, update, delete
 
 # Your Docker PostgreSQL connection with the correct password
-DATABASE_URL = "postgresql+asyncpg://postgres:PASSWORD@localhost:5432/bookly_db"
+DATABASE_URL = "postgresql+asyncpg://yaswanth:mysecurepass@localhost:5432/bookly_db"
+
 
 print(f"Connecting to Docker PostgreSQL: localhost:5432/bookly_db")
 
