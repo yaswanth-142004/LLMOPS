@@ -1,6 +1,28 @@
-langchain 
-langgraph
+# LLM / LangChain
+langchain
+langchain-classic
+langchain-core
 langchain-community
-langchain-groq 
-langchain-google-genai 
+langchain-text-splitters
+langchain-groq
+langchain-google-genai
+langgraph
+
+# Models & config
+pydantic
+python-dotenv
+pyyaml
+
+# Document processing
+pymupdf
+pypdf
+docx2txt
+faiss-cpu
+pandas
+
+# API helpers (UploadFile adapter)
+fastapi
+python-multipart
+
+# Logging
 structlog
