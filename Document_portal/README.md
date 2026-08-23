@@ -1,6 +1,6 @@
 # Document Portal
 
-LangChain-based document analysis, comparison, and conversational RAG over PDFs, DOCX, and text files. Models are loaded from `config/config.yaml` (Google Gemini embeddings/chat or Groq).
+LangChain-based document analysis, comparison, and conversational RAG over PDFs, DOCX, and text files. Models are loaded from `config/config.yaml` (Google Gemini embeddings/chat, Groq, or InferX).
 
 ## Environment (micromamba + Homebrew)
 
@@ -58,7 +58,8 @@ Copy or create a `.env` in `Document_portal/` with:
 ```
 GOOGLE_API_KEY=...
 GROQ_API_KEY=...
-LLM_PROVIDER=google   # or groq
+INFERX_API_KEY=...
+LLM_PROVIDER=google   # or groq or inferx
 ```
 
 Model names and temperatures are in `config/config.yaml`.

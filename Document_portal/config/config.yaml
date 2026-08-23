@@ -4,7 +4,7 @@ faiss_db:
 
 embedding_model:
   provider: "google"
-  model_name: "models/text-embedding-004"
+  model_name: "models/gemini-embedding-001"
 
 retriever:
   top_k: 10
@@ -21,3 +21,10 @@ llm:
     model_name: "gemini-2.0-flash"
     temperature: 0
     max_output_tokens: 2048
+
+  inferx:
+    provider: "inferx"
+    model_name: "Qwen3.6-35B-A3B-FP8"
+    temperature: 0
+    max_output_tokens: 2048
+    api_base: "https://model.inferx.net/endpoints/v1"
