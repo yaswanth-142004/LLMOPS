@@ -1,6 +1,7 @@
 from langchain_google_genai import GoogleGenerativeAIEmbeddings 
 from langchain_google_genai import ChatGoogleGenerativeAI 
 from langchain_groq import ChatGroq 
+from langchain_openai import ChatOpenAI
 from logger.custom_logger import CustomLogger 
 import os 
 from dotenv import load_dotenv
@@ -30,7 +31,12 @@ class ModelLoader:
         Ensure API Keys exist 
         """
         
-        required_vars=["GOOGLE_API_KEY","GROQ_API_KEY"]
+        required_vars=["GOOGLE_API_KEY"]
+        provider = os.getenv("LLM_PROVIDER", "google")
+        if provider == "groq":
+            required_vars.append("GROQ_API_KEY")
+        elif provider == "inferx":
+            required_vars.append("INFERX_API_KEY")
         self.api_keys={key:os.getenv(key) for key in required_vars}
         missing = [k for k,v in self.api_keys.items() if not v]
         if missing:
@@ -89,7 +95,17 @@ class ModelLoader:
                 temperature=temperature
             )
             
-            return llm 
+            return llm
+
+        elif provider == "inferx":
+            llm = ChatOpenAI(
+                model=model_name,
+                api_key=self.api_keys["INFERX_API_KEY"],
+                base_url=llm_config.get("api_base", "https://model.inferx.net/endpoints/v1"),
+                temperature=temperature,
+                max_tokens=max_tokens,
+            )
+            return llm
         
         else:
             logger.error("Unsupported LLM Provider",provider=provider)
